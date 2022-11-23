@@ -1,0 +1,44 @@
+@charset "UTf-8";
+body {
+  margin: 0;
+  padding: 0;
+}
+p {
+  margin: 0;
+}
+h1 {
+  color: #1d68ab;
+}
+.all-container {
+  margin: 0 3em;
+  max-width: 1100px;
+}
+.appointment-title-detail {
+  display: flex;
+  justify-content: flex-start;
+  width: 60%;
+  border-bottom: 1px solid rgb(189, 188, 188);
+}
+.appointment-title-detail dt {
+  width: 30%;
+  padding: 1em 0;
+}
+.appointment-title-detail dd {
+  width: 70%;
+  padding: 1em 0;
+}
+.button-container {
+  margin: 1em 1em 1em 0;
+  display: flex;
+}
+.button-container a {
+  color: #fff;
+  text-decoration: none;
+}
+button {
+  padding: 1em;
+  margin: 2em 5em 2em 0;
+  border: solid 1;
+  border-radius: 12px;
+  background-color: #1d83abc4;
+}
