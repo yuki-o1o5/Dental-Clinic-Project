@@ -29,7 +29,7 @@ public class AppointmentService {
         appointmentRepository.save(appoint);
     }
 
-    // public List<AppointmentEntity> get_appointments_by_user_uuid(int user_uuid) {
-    //     return appointmentRepository.fetchByUserUuid(user_uuid);
-    // }
+    public List<AppointmentEntity> get_appointments_by_user_uuid(int user_uuid) {
+        return appointmentRepository.fetchByUserUuid(user_uuid);
+    }
 }
