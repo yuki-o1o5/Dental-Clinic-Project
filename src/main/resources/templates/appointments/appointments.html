@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link th:href="@{/appointments.css}" rel="stylesheet" />
+    <title>appointments</title>
+  </head>
+  <body>
+    <div class="all-container">
+      <h1>Appointment Details</h1>
+      <p>Thank you for your appointments!</p>
+      <p>Check your appointments details below.</p>
+      <dl>
+        <div class="appointment-title-detail">
+          <dt>First Name</dt>
+          <dd>amet</dd>
+        </div>
+        <div class="appointment-title-detail">
+          <dt>Last Name</dt>
+          <dd>venenatis</dd>
+        </div>
+        <div class="appointment-title-detail">
+          <dt>Service Menu</dt>
+          <dd>Hygiene and Exam</dd>
+        </div>
+        <div class="appointment-title-detail">
+          <dt>Appoint Date & Time</dt>
+          <dd>2000/01/01 10:00:00</dd>
+        </div>
+        <div class="appointment-title-detail">
+          <dt>Doctor</dt>
+          <dd>Amir</dd>
+        </div>
+      </dl>
+      <p>See you then!</p>
+      <div class="button-container">
+        <button><a th:href="@{/home}">Back Homepage</a></button>
+        <button><a th:href="@{/book}">Book Appointment</a></button>
+      </div>
+    </div>
+  </body>
+</html>
