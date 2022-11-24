@@ -129,7 +129,6 @@
         </th:block>
       </ul>
     </div>
-
     <div class="p-10">
       <h2 class="text-sm font-medium text-gray-900">2. Select a Date & Time</h2>
       <form th:action="@{/book/confirm}"method="POST">
@@ -148,9 +147,21 @@
           </fieldset>
         </div>
         <input type="hidden" name="user" id="referer">
-
         <button type="submit" class="mt-6 flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 py-3 px-8 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">book an appointment</button>
       </form>
+    </div>
+    <div class="grid grid-cols-4 gap-4 place-items-end h-30">
+      <div></div>
+      <div></div>
+      <div class="my-10 text-sm font-medium text-gray-400 place-content-center">
+        <a href="/home">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15 15l6-6m0 0l-6-6m6 6H9a6 6 0 000 12h3" />
+          </svg>
+          Go back to HOME
+        </a>
+      </div>
+      <div></div>
     </div>
   </body>
 </html>
