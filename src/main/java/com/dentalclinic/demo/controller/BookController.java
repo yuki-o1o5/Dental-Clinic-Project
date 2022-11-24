@@ -30,7 +30,7 @@ public class BookController {
 
     @GetMapping("/book")
     public String bookAppointment(Model model) {
-        model.addAttribute("schedules", doctorScheduleService.fetchSchedules());
+        model.addAttribute("schedules", doctorScheduleService.fetch_available_schedules());
         model.addAttribute("doctors", doctorService.fetchDoctors());
         return "book_appointment";
     }
