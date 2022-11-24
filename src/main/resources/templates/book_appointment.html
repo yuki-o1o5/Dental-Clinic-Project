@@ -13,6 +13,7 @@
       }
       const tabs = document.getElementsByClassName('tab');
       const availableDates = document.getElementsByClassName('date');
+      const availableButtons = document.getElementsByClassName('date-button');
       const loginUserUuid = storage.getItem('user');
 
       document.addEventListener('DOMContentLoaded', function(){
@@ -23,7 +24,10 @@
         tabs[0].classList.add('active-tab');
 
         Array.prototype.forEach.call(tabs, tab => tab.addEventListener('click', switchTab, false));
-        Array.prototype.forEach.call(availableDates, availableDate => availableDate.addEventListener('click', chooseDate, false));
+        Array.prototype.forEach.call(
+          availableButtons,
+          availableButton => availableButton.addEventListener('click', chooseDate, false)
+        );
 
         function switchTab() {
           Array.prototype.forEach.call(tabs, tab => {
@@ -42,7 +46,7 @@
         };
 
         function chooseDate() {
-          Array.prototype.forEach.call(availableDates, date => {
+          Array.prototype.forEach.call(availableButtons, date => {
             date.classList.remove('date-active-button');
             date.classList.add('date-base-button');
           });
@@ -86,7 +90,7 @@
       }
       @layer components {
         .date-active-button {
-          @apply relative border rounded-md py-3 px-4 flex items-center justify-center text-sm font-medium uppercase focus:outline-none sm:flex-1 bg-blue-400 shadow-sm text-gray-900 cursor-pointer;
+          @apply relative border rounded-md py-3 px-4 flex items-center justify-center text-sm font-medium uppercase  focus:outline-none sm:flex-1 bg-blue-400 shadow-sm text-gray-900 cursor-pointer;
         }
       }
 
@@ -125,6 +129,7 @@
         </th:block>
       </ul>
     </div>
+
     <div class="p-10">
       <h2 class="text-sm font-medium text-gray-900">2. Select a Date & Time</h2>
       <form th:action="@{/book/confirm}"method="POST">
@@ -132,15 +137,18 @@
           <fieldset class="mt-4">
             <div class="grid grid-cols-4 gap-4">
               <th:block th:each="schedule : ${schedules}">
-                <div class="date date-base-button" th:classappend="${schedule.doctor_uuid}">
-                  <input type="radio" name="schedule" th:value="${schedule.uuid}" class="sr-only" aria-labelledby="size-choice-0-label">
-                  <span th:text="${schedule.time}"></span>
+                <div class="date" th:classappend="${schedule.doctor_uuid}">
+                  <label class="date-button date-base-button">
+                    <input type="radio" name="schedule" th:value="${schedule.uuid}" class="sr-only">
+                    <span th:text="${schedule.time}"></span>
+                  </label>
                 </div>
               </th:block>
             </div>
           </fieldset>
         </div>
         <input type="hidden" name="user" id="referer">
+
         <button type="submit" class="mt-6 flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 py-3 px-8 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">book an appointment</button>
       </form>
     </div>
