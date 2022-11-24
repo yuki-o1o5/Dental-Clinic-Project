@@ -1,0 +1,39 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <title>Dental Clinic / Confirmation</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      const storage = localStorage;
+      storage.clear();
+    </script>
+    <style type="text/tailwindcss">
+      @layer utilities {
+        .content-auto {
+          content-visibility: auto;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="tab-panel text-sm font-medium text-center text-gray-500 border-gray-200 dark:text-gray-400 dark:border-gray-700">
+      <div class="flex items-center justify-between">
+        <h2 class="text-sm font-medium text-gray-900">Confirmation of Appointment</h2>
+      </div>
+      <div>
+        <span>Appointment date: </span>
+        <span class="" th:text="${selected_time}"></span>
+      </div>
+      <div>
+        <span>Docotor in charge: </span>
+        <span class="" th:text="${selected_doctor}"></span>
+      </div>
+    </div>
+    <p><a th:href="@{/home}">Go back to home</a></p>
+    <p><a th:href="@{/book}">Continue to book an appointment</a></p>
+    <p><a th:href="@{/appointments}">show appointments</a></p>
+  </body>
+</html>
