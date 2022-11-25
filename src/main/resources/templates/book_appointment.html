@@ -1,0 +1,167 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <title>Dental Clinic: Book an appointment</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+      const storage = localStorage;
+      if (!storage.getItem('isLogIn')) {
+        storage.setItem('isLogIn', true);
+        storage.setItem('user', 1);
+      }
+      const tabs = document.getElementsByClassName('tab');
+      const availableDates = document.getElementsByClassName('date');
+      const availableButtons = document.getElementsByClassName('date-button');
+      const loginUserUuid = storage.getItem('user');
+
+      document.addEventListener('DOMContentLoaded', function(){
+        enableIsShow(availableDates, 1);
+        document.getElementById('referer').value = loginUserUuid;
+        Array.prototype.forEach.call( document.getElementsByClassName('tab'), e => {e.classList.add('inactive-tab')});
+        tabs[0].classList.remove('inactive-tab');
+        tabs[0].classList.add('active-tab');
+
+        Array.prototype.forEach.call(tabs, tab => tab.addEventListener('click', switchTab, false));
+        Array.prototype.forEach.call(
+          availableButtons,
+          availableButton => availableButton.addEventListener('click', chooseDate, false)
+        );
+
+        function switchTab() {
+          Array.prototype.forEach.call(tabs, tab => {
+              tab.classList.remove('active-tab');
+              tab.classList.add('inactive-tab');
+          });
+          this.classList.remove('inactive-tab');
+          this.classList.add('active-tab');
+
+          Array.prototype.forEach.call(
+            document.getElementsByClassName('date'), e => e.classList.remove('is-show')
+          );
+
+          const doctorUuid = parseInt(this.classList.value.replace(/[^0-9]/g, ""));
+          enableIsShow(availableDates, doctorUuid);
+        };
+
+        function chooseDate() {
+          Array.prototype.forEach.call(availableButtons, date => {
+            date.classList.remove('date-active-button');
+            date.classList.add('date-base-button');
+          });
+          this.classList.remove('date-base-button');
+          this.classList.add('date-active-button');
+        };
+
+        function enableIsShow(elements, id) {
+          Array.prototype.forEach.call(
+            elements, e => {
+              parseInt(e.classList.value.replace(/[^0-9]/g, "")) === id
+                ? e.classList.add('is-show')
+                : null;
+            }
+          );
+        }
+      }, false);
+    </script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style type="text/tailwindcss">
+      @import "tailwindcss/base";
+      @import "tailwindcss/components";
+      @import "tailwindcss/utilities";
+
+      @layer components {
+        .inactive-tab {
+          @apply mr-2 inline-block p-4 rounded-t-lg border-b-2 border-transparent hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300 cursor-pointer;
+        }
+      }
+
+      @layer components {
+        .active-tab {
+          @apply mr-2 inline-block p-4 text-blue-600 rounded-t-lg border-b-2 border-blue-600 dark:text-blue-500 dark:border-blue-500 cursor-pointer;
+        }
+      }
+
+      @layer components {
+        .date-base-button {
+          @apply relative border rounded-md py-3 px-4 flex items-center justify-center text-sm font-medium uppercase hover:bg-gray-50 focus:outline-none sm:flex-1 bg-white shadow-sm text-gray-900 cursor-pointer;
+        }
+      }
+      @layer components {
+        .date-active-button {
+          @apply relative border rounded-md py-3 px-4 flex items-center justify-center text-sm font-medium uppercase  focus:outline-none sm:flex-1 bg-blue-400 shadow-sm text-gray-900 cursor-pointer;
+        }
+      }
+
+      @layer utilities {
+        .content-auto {
+          content-visibility: auto;
+        }
+      }
+    </style>
+    <style>
+      .panel{
+        display:none;
+      }
+      .panel.is-show{
+        display:block;
+      }
+      .date{
+        display:none;
+      }
+      .date.is-show{
+        display:block;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="py-10 bg-slate-200">
+      <h2 class="text-3xl font-medium text-center text-gray-900 dark:text-gray-400 dark:border-gray-700">Let's book an appointment</h2>
+    </div>
+    <div class="tab-panel p-10 text-sm font-medium text-center text-gray-500 border-b border-gray-200 dark:text-gray-400 dark:border-gray-700">
+      <div class="flex items-center justify-between">
+        <h2 class="text-sm font-medium text-gray-900">1. Choose a doctor</h2>
+      </div>
+      <ul class="flex flex-wrap -mb-px">
+        <th:block th:each="doctor : ${doctors}">
+            <li class="tab" th:classappend="${doctor.uuid}" th:value="${doctor.uuid}" th:text="${doctor.name}"> </li>
+        </th:block>
+      </ul>
+    </div>
+    <div class="p-10">
+      <h2 class="text-sm font-medium text-gray-900">2. Select a Date & Time</h2>
+      <form th:action="@{/book/confirm}"method="POST">
+        <div class="mt-10">
+          <fieldset class="mt-4">
+            <div class="grid grid-cols-4 gap-4">
+              <th:block th:each="schedule : ${schedules}">
+                <div class="date" th:classappend="${schedule.doctor_uuid}">
+                  <label class="date-button date-base-button">
+                    <input type="radio" name="schedule" th:value="${schedule.uuid}" class="sr-only">
+                    <span th:text="${schedule.time}"></span>
+                  </label>
+                </div>
+              </th:block>
+            </div>
+          </fieldset>
+        </div>
+        <input type="hidden" name="user" id="referer">
+        <button type="submit" class="mt-6 flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 py-3 px-8 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">book an appointment</button>
+      </form>
+    </div>
+    <div class="grid grid-cols-4 gap-4 place-items-end h-30">
+      <div></div>
+      <div></div>
+      <div class="my-10 text-sm font-medium text-gray-400 place-content-center">
+        <a href="/home">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15 15l6-6m0 0l-6-6m6 6H9a6 6 0 000 12h3" />
+          </svg>
+          Go back to HOME
+        </a>
+      </div>
+      <div></div>
+    </div>
+  </body>
+</html>

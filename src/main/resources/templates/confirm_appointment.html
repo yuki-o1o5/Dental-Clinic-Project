@@ -1,0 +1,51 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <title>Dental Clinic / Confirmation</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      const storage = localStorage;
+      storage.clear();
+    </script>
+    <style type="text/tailwindcss">
+      @layer utilities {
+        .content-auto {
+          content-visibility: auto;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="mb-10 py-10 bg-slate-200">
+      <h2 class="text-3xl font-medium text-center text-gray-900">Confirmation of Appointment</h2>
+    </div>
+    <div class=" grid grid-cols-3 gap-4 ">
+      <div></div>
+      <dl class="max-w-md text-gray-900 divide-y divide-gray-200">
+        <div class="flex flex-col pb-3">
+          <dt class="mb-1 text-gray-500 text-2xl">Appointment date</dt>
+          <dd class="font-semibold text-2xl" th:text="${selected_time}"></dd>
+        </div>
+        <div class="flex flex-col py-3">
+          <dt class="mb-1 text-gray-500 text-2xl">Doctor in charge</dt>
+          <dd class="font-semibold text-2xl" th:text="${selected_doctor}"></dd>
+        </div>
+      </dl>
+      <div></div>
+    </div>
+    <div class="mt-20 grid grid-cols-3 gap-4 h-30 text-center">
+      <div class="my-10 text-sm font-medium text-blue-400">
+        <a th:href="@{/home}">Go back to HOME</a>
+      </div>
+      <div class="my-10 text-sm font-medium text-blue-400 place-content-center">
+        <a th:href="@{/book}">Continue to book an appointment</a>
+      </div>
+      <div class="my-10 text-sm font-medium text-blue-400 place-content-center">
+        <a th:href="@{/appointments}">show appointments</a>
+      </div>
+    </div>
+  </body>
+</html>
