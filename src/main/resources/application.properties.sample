@@ -1,5 +1,0 @@
-spring.datasource.url=jdbc:mysql://localhost:3306/dental?enabledTLSProtocols=TLSv1.2
-spring.datasource.username=root
-spring.datasource.password=root
-spring.jpa.database=MYSQL
-spring.jpa.hibernate.ddl-auto=update
