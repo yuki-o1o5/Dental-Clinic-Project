@@ -5,40 +5,37 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 
-
-
-import com.dentalclinic.demo.entity.SignupEntity;
-import com.dentalclinic.demo.repository.SignupRepository;
+import com.dentalclinic.demo.dao.iSignupRepository;
+import com.dentalclinic.demo.entity.Signup;
+import com.dentalclinic.demo.service.UserService;
 
 @Controller
- @RequestMapping("/signup") 
-public class Signupcontroller {
+public class SignupController {
 
   @Autowired
-  SignupRepository signupRepository;
+  iSignupRepository signupRepository;
 
-  // @RequestMapping(value="/new", method = RequestMethod.GET)
-  @GetMapping //feedback?
+  @Autowired
+  UserService userService;
+
+  @GetMapping("/signup")
   public String displayProjectForm(Model model) {
-    model.addAttribute("signup", new SignupEntity());
+    model.addAttribute("signup", new Signup());
     return "signup/signup";
   }
 
-  @PostMapping("/save")
-  public String signup(SignupEntity signup, Model model) {
-    System.out.println(signup.getFirstName());
-    System.out.println(signup.getLastName());
-    System.out.println(signup.getBirthDate());
-    System.out.println(signup.getEmail());
-    System.out.println(signup.getPhoneNumber());
-    System.out.println(signup.getPassword());
-    System.out.println("###################");
-
-    signupRepository.save(signup);
-    return "redirect:/login";  
-    // return "redirect:/signup/new";   
+  @PostMapping("/signup/save")
+  public String signup(Signup signup, Model model) {
+    userService.create(
+      signup.getEmail(),
+      signup.getPassword(),
+      signup.getFirstName(),
+      signup.getLastName(),
+      signup.getBirthDate(),
+      signup.getPhoneNumber()
+    );
+    return "redirect:/home";
   }
 
 
