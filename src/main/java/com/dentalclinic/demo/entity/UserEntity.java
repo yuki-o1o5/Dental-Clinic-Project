@@ -15,11 +15,9 @@ public class UserEntity {
     @Id
     @GeneratedValue
     private int uuid;
-
-    @Column(name = "email")
+    @Column(name = "email", nullable = false, unique = true)
     private String email;
-
-    @Column(name = "password")
+    @Column(name = "password", nullable = false, unique = true)
     private String password;
 
     @Column(name = "first_name")
