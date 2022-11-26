@@ -1,0 +1,12 @@
+@charset "UTf-8";
+body {
+  margin: 0;
+  padding: 0;
+}
+.all-container {
+  margin: 2em 3em;
+  max-width: 1100px;
+}
+h2 {
+  color: #1d68ab;
+}

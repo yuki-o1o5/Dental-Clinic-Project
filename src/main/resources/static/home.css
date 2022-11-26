@@ -53,9 +53,12 @@ h4 {
 button {
   padding: 1em;
   margin: 2em 5em 2em 0;
-  border: solid 1;
-  border-radius: 12px;
-  background-color: #1d83abc4;
+  border-radius: 6px;
+  border: none;
+  background-color: #4f46e5;
+}
+button:hover {
+  background-color: #4338ca;
 }
 .service-menu-container {
   display: flex;
