@@ -5,14 +5,6 @@ USE dental;
 
 DROP TABLE IF EXISTS dental.account, dental.users, dental.doctors;
 
-CREATE TABLE IF NOT EXISTS dental.account(
-    account_id    int PRIMARY KEY AUTO_INCREMENT,
-    email         varchar(50) NOT NULL,
-    password      varchar(30) NOT NULL,
-    user_name     varchar(30) NOT NULL,
-    INDEX(account_id)
-);
-
 CREATE TABLE IF NOT EXISTS dental.users(
     uuid          int PRIMARY KEY AUTO_INCREMENT,
     email         varchar(50) NOT NULL,

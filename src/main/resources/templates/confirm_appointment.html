@@ -19,21 +19,33 @@
     </style>
   </head>
   <body>
-    <div class="tab-panel text-sm font-medium text-center text-gray-500 border-gray-200 dark:text-gray-400 dark:border-gray-700">
-      <div class="flex items-center justify-between">
-        <h2 class="text-sm font-medium text-gray-900">Confirmation of Appointment</h2>
+    <div class="mb-10 py-10 bg-slate-200">
+      <h2 class="text-3xl font-medium text-center text-gray-900">Confirmation of Appointment</h2>
+    </div>
+    <div class=" grid grid-cols-3 gap-4 ">
+      <div></div>
+      <dl class="max-w-md text-gray-900 divide-y divide-gray-200">
+        <div class="flex flex-col pb-3">
+          <dt class="mb-1 text-gray-500 text-2xl">Appointment date</dt>
+          <dd class="font-semibold text-2xl" th:text="${selected_time}"></dd>
+        </div>
+        <div class="flex flex-col py-3">
+          <dt class="mb-1 text-gray-500 text-2xl">Doctor in charge</dt>
+          <dd class="font-semibold text-2xl" th:text="${selected_doctor}"></dd>
+        </div>
+      </dl>
+      <div></div>
+    </div>
+    <div class="mt-20 grid grid-cols-3 gap-4 h-30 text-center">
+      <div class="my-10 text-sm font-medium text-blue-400">
+        <a th:href="@{/home}">Go back to HOME</a>
       </div>
-      <div>
-        <span>Appointment date: </span>
-        <span class="" th:text="${selected_time}"></span>
+      <div class="my-10 text-sm font-medium text-blue-400 place-content-center">
+        <a th:href="@{/book}">Continue to book an appointment</a>
       </div>
-      <div>
-        <span>Docotor in charge: </span>
-        <span class="" th:text="${selected_doctor}"></span>
+      <div class="my-10 text-sm font-medium text-blue-400 place-content-center">
+        <a th:href="@{/appointments}">show appointments</a>
       </div>
     </div>
-    <p><a th:href="@{/home}">Go back to home</a></p>
-    <p><a th:href="@{/book}">Continue to book an appointment</a></p>
-    <p><a th:href="@{/appointments}">show appointments</a></p>
   </body>
 </html>
