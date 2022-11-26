@@ -30,18 +30,18 @@ h1 {
   width: 70%;
   padding: 1em 0;
 }
-.button-container {
-  margin: 1em 1em 1em 0;
+.gobackhome_container {
+  margin-top: 2em;
+  margin-left: 15em;
   display: flex;
 }
-.button-container a {
-  color: #fff;
+.gobackhome_container p {
+  margin-left: 0.5em;
+  color: #9ca3af;
+}
+.gobackhome_container a {
   text-decoration: none;
 }
-button {
-  padding: 1em;
-  margin: 2em 5em 2em 0;
-  border: solid 1;
-  border-radius: 12px;
-  background-color: #1d83abc4;
+i {
+  color: #9ca3af;
 }

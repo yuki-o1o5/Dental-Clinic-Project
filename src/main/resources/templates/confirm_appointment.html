@@ -20,8 +20,8 @@
     <link th:href="@{/confirm_appointment.css}" rel="stylesheet" />
     <!-- add fontawesome link tag -->
     <link
-      href="https://use.fontawesome.com/releases/v5.6.1/css/all.css"
       rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
     />
   </head>
   <body>
@@ -47,16 +47,19 @@
       </div>
       <div class="mt-20 grid grid-cols-3 gap-4 h-30 text-center">
         <div class="my-10 text-sm font-medium text-gray-400">
+          <i class="fa-solid fa-house"></i>
           <a th:href="@{/home}">Go Back to Home</a>
         </div>
         <div
           class="my-10 text-sm font-medium place-content-center text-gray-400"
         >
+          <i class="fa-solid fa-book"></i>
           <a th:href="@{/book}">Continue to Book an Appointment</a>
         </div>
         <div
           class="my-10 text-sm font-medium place-content-center text-gray-400"
         >
+          <i class="fa-solid fa-calendar-check"></i>
           <a th:href="@{/appointments}">Show Appointments</a>
         </div>
       </div>

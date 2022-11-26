@@ -42,3 +42,10 @@ h2 {
   background-position: center center;
   object-fit: cover;
 }
+.gobackhome_container {
+  margin-top: 2em;
+  display: flex;
+}
+.gobackhome_container p {
+  margin-left: 0.5em;
+}
