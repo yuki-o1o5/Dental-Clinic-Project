@@ -11,7 +11,7 @@ import com.dentalclinic.demo.entity.Signup;
 import com.dentalclinic.demo.service.UserService;
 
 @Controller
-public class Signupcontroller {
+public class SignupController {
 
   @Autowired
   iSignupRepository signupRepository;
