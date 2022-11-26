@@ -17,14 +17,12 @@
         }
       }
     </style>
-    <link th:href="@{confirm_appointment.css}" rel="stylesheet" />
+    <link th:href="@{/confirm_appointment.css}" rel="stylesheet" />
   </head>
   <body>
     <div class="all-container">
-      <div class="mb-10 py-10 ">
-        <h2 class="text-3xl font-medium text-center">
-          Confirmation of Appointment
-        </h2>
+      <div>
+        <p class="confirmtitle">Confirmation of Appointment</p>
       </div>
       <div class="grid grid-cols-3 gap-4">
         <div></div>
@@ -41,21 +39,20 @@
             ></dd>
           </div>
         </dl>
-        <div></div>
       </div>
       <div class="mt-20 grid grid-cols-3 gap-4 h-30 text-center">
-        <div class="my-10 text-sm font-medium text-blue-400">
-          <a th:href="@{/home}">Go back to HOME</a>
+        <div class="my-10 text-sm font-medium text-gray-400">
+          <a th:href="@{/home}">Go Back to Home</a>
         </div>
         <div
-          class="my-10 text-sm font-medium text-blue-400 place-content-center"
+          class="my-10 text-sm font-medium place-content-center text-gray-400"
         >
-          <a th:href="@{/book}">Continue to book an appointment</a>
+          <a th:href="@{/book}">Continue to Book an Appointment</a>
         </div>
         <div
-          class="my-10 text-sm font-medium text-blue-400 place-content-center"
+          class="my-10 text-sm font-medium place-content-center text-gray-400"
         >
-          <a th:href="@{/appointments}">show appointments</a>
+          <a th:href="@{/appointments}">Show Appointments</a>
         </div>
       </div>
     </div>

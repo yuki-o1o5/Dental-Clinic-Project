@@ -2,6 +2,7 @@
 body {
   margin: 0;
   padding: 0;
+  background-color: aliceblue;
 }
 .all-container {
   margin: 2em 3em;
@@ -9,4 +10,35 @@ body {
 }
 h2 {
   color: #1d68ab;
+}
+.Yutaimg {
+  height: 200px;
+  width: 200px;
+  border-radius: 50%;
+  background-position: center center;
+  object-fit: cover;
+}
+
+.Amirimg {
+  height: 200px;
+  width: 200px;
+  border-radius: 50%;
+  background-position: center center;
+  object-fit: cover;
+}
+
+.Hiroimg {
+  height: 200px;
+  width: 200px;
+  border-radius: 50%;
+  background-position: center center;
+  object-fit: cover;
+}
+
+.Yukiimg {
+  height: 200px;
+  width: 200px;
+  border-radius: 50%;
+  background-position: center center;
+  object-fit: cover;
 }

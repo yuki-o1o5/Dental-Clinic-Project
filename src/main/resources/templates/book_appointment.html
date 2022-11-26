@@ -130,6 +130,28 @@
             <li class="tab" th:classappend="${doctor.uuid}" th:value="${doctor.uuid}" th:text="${doctor.name}"> </li>
         </th:block>
       </ul>
+            <!-- img add -->
+      <img
+            class="Yutaimg"
+            th:src="@{/images/austin-distel-7bMdiIqz_J4-unsplash 2.jpg}"
+            alt="doctorYuta"
+          />
+          <img
+          class="Amirimg"
+          th:src="@{/images/usman-yousaf-pTrhfmj2jDA-unsplash.jpg}"
+          alt="doctorAmir"
+        />
+        <img
+            class="Hiroimg"
+            th:src="@{/images/dalton-ngangi-ZCztndOWdjs-unsplash.jpg}"
+            alt="doctorHiro"
+          />
+          <img
+            class="Yukiimg"
+            th:src="@{/images/humberto-chavez-FVh_yqLR9eA-unsplash 2.jpg}"
+            alt="doctorYuki"
+          />
+
     </div>
     <div class="p-10">
       <h2 class="text-lg font-medium text-gray-900">2. Select a Date & Time</h2>
@@ -156,12 +178,11 @@
       <div></div>
       <div></div>
       <div class="my-10 text-sm font-medium text-gray-400 place-content-center">
-        <a href="/home">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M15 15l6-6m0 0l-6-6m6 6H9a6 6 0 000 12h3" />
-          </svg>
-          Go back to HOME
-        </a>
+        <div class="gobackhome_container">
+          <!-- add fontawesome icon -->
+          <i class="fa-regular fa-house"><a href="/home"></a></i>
+          <p>Go Back to Home</p>
+        </div>
       </div>
       <div></div>
     </div>
