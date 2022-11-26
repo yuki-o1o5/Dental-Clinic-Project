@@ -1,0 +1,18 @@
+@charset "UTF-8";
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "ABeeZee", sans-serif;
+  font-family: "Questrial", sans-serif;
+  background-color: aliceblue;
+}
+.all-container {
+  margin: 2em 3em;
+  max-width: 1100px;
+}
+.confirmtitle {
+  color: #1d68ab;
+  text-align: center;
+  font-size: 32px;
+  padding-bottom: 1em;
+}

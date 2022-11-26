@@ -32,3 +32,6 @@ mysql -h 127.0.0.1 -P 3306 -u root -p < ./sql/02_initial-data.sql
 
 - Or, you can run those files with MySQL workbench.
   - Refer [here](https://www.tutorialspoint.com/how-to-run-sql-script-in-mysql#:~:text=To%20run%20SQL%20script%20in%20MySQL%2C%20use%20the%20MySQL%20workbench,need%20to%20open%20MySQL%20workbench.&text=Now%2C%20File%20%2D%3E%20Open%20SQL,to%20open%20the%20SQL%20script.&text=Note%20%E2%88%92%20Press%20OK%20button%20twice%20to%20connect%20with%20MySQL.)
+
+
+

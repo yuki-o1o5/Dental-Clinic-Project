@@ -114,23 +114,52 @@
         display:block;
       }
     </style>
+    <link th:href="@{book_appointment.css}" rel="stylesheet" />
+        <!-- add fontawesome link tag -->
+        <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+      />
   </head>
   <body>
-    <div class="py-10 bg-slate-200">
-      <h2 class="text-3xl font-medium text-center text-gray-900 dark:text-gray-400 dark:border-gray-700">Let's book an appointment</h2>
+    <div class="all-container">
+    <div>
+      <h2 class="text-3xl">Let's book an appointment</h2>
     </div>
     <div class="tab-panel p-10 text-sm font-medium text-center text-gray-500 border-b border-gray-200 dark:text-gray-400 dark:border-gray-700">
       <div class="flex items-center justify-between">
-        <h2 class="text-sm font-medium text-gray-900">1. Choose a doctor</h2>
+        <h2 class="text-lg font-medium text-gray-900">1. Choose a doctor</h2>
       </div>
       <ul class="flex flex-wrap -mb-px">
         <th:block th:each="doctor : ${doctors}">
             <li class="tab" th:classappend="${doctor.uuid}" th:value="${doctor.uuid}" th:text="${doctor.name}"> </li>
         </th:block>
       </ul>
+            <!-- img add -->
+      <img
+            class="Yutaimg"
+            th:src="@{/images/austin-distel-7bMdiIqz_J4-unsplash 2.jpg}"
+            alt="doctorYuta"
+          />
+          <img
+          class="Amirimg"
+          th:src="@{/images/usman-yousaf-pTrhfmj2jDA-unsplash.jpg}"
+          alt="doctorAmir"
+        />
+        <img
+            class="Hiroimg"
+            th:src="@{/images/dalton-ngangi-ZCztndOWdjs-unsplash.jpg}"
+            alt="doctorHiro"
+          />
+          <img
+            class="Yukiimg"
+            th:src="@{/images/humberto-chavez-FVh_yqLR9eA-unsplash 2.jpg}"
+            alt="doctorYuki"
+          />
+
     </div>
     <div class="p-10">
-      <h2 class="text-sm font-medium text-gray-900">2. Select a Date & Time</h2>
+      <h2 class="text-lg font-medium text-gray-900">2. Select a Date & Time</h2>
       <form th:action="@{/book/confirm}"method="POST">
         <div class="mt-10">
           <fieldset class="mt-4">
@@ -154,14 +183,17 @@
       <div></div>
       <div></div>
       <div class="my-10 text-sm font-medium text-gray-400 place-content-center">
-        <a href="/home">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M15 15l6-6m0 0l-6-6m6 6H9a6 6 0 000 12h3" />
-          </svg>
-          Go back to HOME
-        </a>
+       <!-- add fontawesome icon -->
+       <div class="gobackhome_container">
+        <i class="fa-solid fa-house"></i>
+        <p><a href="/home">Go Back to Home</a></p>
+      </div>
       </div>
       <div></div>
     </div>
+  </div>
   </body>
 </html>
+
+<!-- 消さないもの
+  tab/date/date-button date-base-button -->

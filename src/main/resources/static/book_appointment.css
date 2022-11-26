@@ -1,0 +1,51 @@
+@charset "UTf-8";
+body {
+  margin: 0;
+  padding: 0;
+  background-color: aliceblue;
+}
+.all-container {
+  margin: 2em 3em;
+  max-width: 1100px;
+}
+h2 {
+  color: #1d68ab;
+}
+.Yutaimg {
+  height: 200px;
+  width: 200px;
+  border-radius: 50%;
+  background-position: center center;
+  object-fit: cover;
+}
+
+.Amirimg {
+  height: 200px;
+  width: 200px;
+  border-radius: 50%;
+  background-position: center center;
+  object-fit: cover;
+}
+
+.Hiroimg {
+  height: 200px;
+  width: 200px;
+  border-radius: 50%;
+  background-position: center center;
+  object-fit: cover;
+}
+
+.Yukiimg {
+  height: 200px;
+  width: 200px;
+  border-radius: 50%;
+  background-position: center center;
+  object-fit: cover;
+}
+.gobackhome_container {
+  margin-top: 2em;
+  display: flex;
+}
+.gobackhome_container p {
+  margin-left: 0.5em;
+}
