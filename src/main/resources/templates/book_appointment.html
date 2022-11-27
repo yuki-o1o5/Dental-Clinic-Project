@@ -7,10 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script>
       const storage = localStorage;
-      if (!storage.getItem('isLogIn')) {
-        storage.setItem('isLogIn', true);
-        storage.setItem('user', 1);
-      }
+
       const tabs = document.getElementsByClassName('tab');
       const availableDates = document.getElementsByClassName('date');
       const availableButtons = document.getElementsByClassName('date-button');

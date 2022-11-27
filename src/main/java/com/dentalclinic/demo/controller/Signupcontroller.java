@@ -6,15 +6,12 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import com.dentalclinic.demo.dao.iSignupRepository;
 import com.dentalclinic.demo.entity.Signup;
+import com.dentalclinic.demo.entity.UserEntity;
 import com.dentalclinic.demo.service.UserService;
 
 @Controller
 public class SignupController {
-
-  @Autowired
-  iSignupRepository signupRepository;
 
   @Autowired
   UserService userService;
@@ -35,7 +32,8 @@ public class SignupController {
       signup.getBirthDate(),
       signup.getPhoneNumber()
     );
-    return "redirect:/home";
+    UserEntity user = userService.find_user_by_email(signup.getEmail());
+    return String.format("redirect:/home?user_uuid=%s", user.getUuid());
   }
 
 
