@@ -15,7 +15,7 @@
       const url = new URL(window.location.href);
       const params = url.searchParams;
       const storage = localStorage;
-      storage.setItem('user', params.get('user_uuid'));
+      if (params.get('user_uuid')) { storage.setItem('user', params.get('user_uuid')); }
     </script>
 
     <title>Home</title>
