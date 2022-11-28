@@ -11,6 +11,14 @@
       href="https://fonts.googleapis.com/css2?family=ABeeZee&family=Questrial&display=swap"
       rel="stylesheet"
     />
+    <script>
+      const url = new URL(window.location.href);
+      const params = url.searchParams;
+      const storage = localStorage;
+      if (params.get('user_uuid')) { storage.setItem('user', params.get('user_uuid')); }
+      if (!storage.getItem('user')) { document.location.href = "/"; }
+    </script>
+
     <title>Home</title>
   </head>
   <body>

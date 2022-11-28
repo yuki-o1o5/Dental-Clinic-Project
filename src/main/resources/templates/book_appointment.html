@@ -7,10 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script>
       const storage = localStorage;
-      if (!storage.getItem('isLogIn')) {
-        storage.setItem('isLogIn', true);
-        storage.setItem('user', 1);
-      }
+      if (!storage.getItem('user')) { document.location.href = "/"; }
+
       const tabs = document.getElementsByClassName('tab');
       const availableDates = document.getElementsByClassName('date');
       const availableButtons = document.getElementsByClassName('date-button');
@@ -67,10 +65,6 @@
     </script>
     <script src="https://cdn.tailwindcss.com"></script>
     <style type="text/tailwindcss">
-      @import "tailwindcss/base";
-      @import "tailwindcss/components";
-      @import "tailwindcss/utilities";
-
       @layer components {
         .inactive-tab {
           @apply mr-2 inline-block p-4 rounded-t-lg border-b-2 border-transparent hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300 cursor-pointer;
