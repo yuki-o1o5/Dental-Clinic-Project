@@ -10,6 +10,7 @@
       if (!storage.getItem('user')) { document.location.href = "/"; }
 
       const tabs = document.getElementsByClassName('tab');
+      const imgs = document.getElementsByClassName('doctor-img');
       const availableDates = document.getElementsByClassName('date');
       const availableButtons = document.getElementsByClassName('date-button');
       const loginUserUuid = storage.getItem('user');
@@ -17,9 +18,11 @@
       document.addEventListener('DOMContentLoaded', function(){
         enableIsShow(availableDates, 1);
         document.getElementById('referer').value = loginUserUuid;
-        Array.prototype.forEach.call( document.getElementsByClassName('tab'), e => {e.classList.add('inactive-tab')});
+        Array.prototype.forEach.call( tabs, e => {e.classList.add('inactive-tab')});
         tabs[0].classList.remove('inactive-tab');
         tabs[0].classList.add('active-tab');
+        imgs[0].classList.remove('is-show');
+        imgs[0].classList.add('is-show');
 
         Array.prototype.forEach.call(tabs, tab => tab.addEventListener('click', switchTab, false));
         Array.prototype.forEach.call(
@@ -35,12 +38,15 @@
           this.classList.remove('inactive-tab');
           this.classList.add('active-tab');
 
+          Array.prototype.forEach.call(imgs, tab => { tab.classList.remove('is-show'); });
+
           Array.prototype.forEach.call(
             document.getElementsByClassName('date'), e => e.classList.remove('is-show')
           );
 
           const doctorUuid = parseInt(this.classList.value.replace(/[^0-9]/g, ""));
           enableIsShow(availableDates, doctorUuid);
+          enableIsShow(imgs, doctorUuid);
         };
 
         function chooseDate() {
@@ -107,6 +113,12 @@
       .date.is-show{
         display:block;
       }
+      .doctor-img{
+        display:none;
+      }
+      .doctor-img.is-show{
+        display:block;
+      }
     </style>
     <link th:href="@{book_appointment.css}" rel="stylesheet" />
         <!-- add fontawesome link tag -->
@@ -129,27 +141,26 @@
             <li class="tab" th:classappend="${doctor.uuid}" th:value="${doctor.uuid}" th:text="${doctor.name}"> </li>
         </th:block>
       </ul>
-            <!-- img add -->
       <img
-            class="Yutaimg"
-            th:src="@{/images/austin-distel-7bMdiIqz_J4-unsplash 2.jpg}"
-            alt="doctorYuta"
-          />
-          <img
-          class="Amirimg"
-          th:src="@{/images/usman-yousaf-pTrhfmj2jDA-unsplash.jpg}"
-          alt="doctorAmir"
-        />
-        <img
-            class="Hiroimg"
-            th:src="@{/images/dalton-ngangi-ZCztndOWdjs-unsplash.jpg}"
-            alt="doctorHiro"
-          />
-          <img
-            class="Yukiimg"
-            th:src="@{/images/humberto-chavez-FVh_yqLR9eA-unsplash 2.jpg}"
-            alt="doctorYuki"
-          />
+        class="doctor-img Yutaimg 1"
+        th:src="@{/images/austin-distel-7bMdiIqz_J4-unsplash 2.jpg}"
+        alt="doctorYuta"
+      />
+      <img
+        class="doctor-img Amirimg 2"
+        th:src="@{/images/usman-yousaf-pTrhfmj2jDA-unsplash.jpg}"
+        alt="doctorAmir"
+      />
+      <img
+        class="doctor-img Hiroimg 3"
+        th:src="@{/images/dalton-ngangi-ZCztndOWdjs-unsplash.jpg}"
+        alt="doctorHiro"
+      />
+      <img
+        class="doctor-img Yukiimg 4"
+        th:src="@{/images/humberto-chavez-FVh_yqLR9eA-unsplash 2.jpg}"
+        alt="doctorYuki"
+      />
 
     </div>
     <div class="p-10">
