@@ -13,8 +13,6 @@ import com.dentalclinic.demo.entity.AppointmentEntity;
 
 @Repository
 public interface AppointmentRepository extends JpaRepository<AppointmentEntity, Integer> {
-    // @Query(value="SELECT a FROM AppointmentEntity a WHERE a.user_uuid = ?1")
-    // List<AppointmentEntity> fetchByUserUuid(int user_uuid);
 
     @Query(value="""
         SELECT
