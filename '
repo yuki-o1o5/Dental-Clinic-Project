@@ -1,0 +1,15 @@
+fix chore
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+#
+# On branch feat/show_appointments_connecting_db
+# Your branch is ahead of 'origin/main' by 2 commits.
+#   (use "git push" to publish your local commits)
+#
+# Changes to be committed:
+#	modified:   src/main/java/com/dentalclinic/demo/controller/AppointmentsController.java
+#	deleted:    src/main/java/com/dentalclinic/demo/entity/UserAppointments.java
+#	modified:   src/main/java/com/dentalclinic/demo/repository/DoctorScheduleRepository.java
+#	modified:   src/main/java/com/dentalclinic/demo/service/AppointmentService.java
+#	modified:   src/main/resources/templates/appointments/appointments.html
+#

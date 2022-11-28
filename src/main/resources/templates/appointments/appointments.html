@@ -14,32 +14,39 @@
     <title>appointments</title>
   </head>
   <body>
+
     <div class="all-container">
       <h1>Appointment Details</h1>
       <p>Thank you for your appointments!</p>
       <p>Check your appointments details below.</p>
-      <dl>
+
+      <h2>Patient Name</h2>
+      <dl style="margin-bottom: 70px">
         <div class="appointment-title-detail">
           <dt>First Name</dt>
-          <dd>amet</dd>
+          <dd th:text="${appointments[0].first_name}"></dd>
         </div>
         <div class="appointment-title-detail">
           <dt>Last Name</dt>
-          <dd>venenatis</dd>
-        </div>
-        <div class="appointment-title-detail">
-          <dt>Service Menu</dt>
-          <dd>Hygiene and Exam</dd>
-        </div>
-        <div class="appointment-title-detail">
-          <dt>Appoint Date & Time</dt>
-          <dd>2000/01/01 10:00:00</dd>
-        </div>
-        <div class="appointment-title-detail">
-          <dt>Doctor</dt>
-          <dd>Amir</dd>
+          <dd th:text="${appointments[0].last_name}"></dd>
         </div>
       </dl>
+
+      <h2>Appointments</h2>
+      <th:block th:each="appointment, appointmentStat : ${appointments}">
+        <dl style="margin-bottom: 50px">
+          <h4 th:text="${appointmentStat.count}"></h4>
+          <div class="appointment-title-detail">
+            <dt>Appoint Date & Time</dt>
+            <dd th:text="${appointment.appointment_time}"></dd>
+          </div>
+          <div class="appointment-title-detail">
+            <dt>Doctor</dt>
+            <dd th:text="${appointment.doctor_name}"></dd>
+          </div>
+        </dl>
+      </th:block>
+
       <p>See you then!</p>
       <div class="gobackhome_container">
         <i class="fa-solid fa-house"></i>

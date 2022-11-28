@@ -1,22 +1,22 @@
 package com.dentalclinic.demo.service;
 
-import com.dentalclinic.demo.entity.AppointmentEntity;
-import com.dentalclinic.demo.repository.AppointMentRepository;
+import java.util.List;
 
 import lombok.RequiredArgsConstructor;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.List;
+import com.dentalclinic.demo.dto.UserAppointmentDto;
+import com.dentalclinic.demo.entity.AppointmentEntity;
+import com.dentalclinic.demo.repository.AppointmentRepository;
 
 @Service
 @Transactional
 @RequiredArgsConstructor
 public class AppointmentService {
     @Autowired
-    AppointMentRepository appointmentRepository;
+    AppointmentRepository appointmentRepository;
 
     public List<AppointmentEntity> get_appointments() {
         return appointmentRepository.findAll();
@@ -29,7 +29,7 @@ public class AppointmentService {
         appointmentRepository.save(appoint);
     }
 
-    public List<AppointmentEntity> get_appointments_by_user_uuid(int user_uuid) {
+    public List<UserAppointmentDto> get_appointments_by_user_uuid(int user_uuid) {
         return appointmentRepository.fetchByUserUuid(user_uuid);
     }
 }
