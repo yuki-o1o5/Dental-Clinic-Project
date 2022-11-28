@@ -16,6 +16,7 @@
       const params = url.searchParams;
       const storage = localStorage;
       if (params.get('user_uuid')) { storage.setItem('user', params.get('user_uuid')); }
+      if (!storage.getItem('user')) { document.location.href = "/"; }
     </script>
 
     <title>Home</title>
