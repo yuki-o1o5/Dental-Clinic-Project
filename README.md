@@ -1,43 +1,43 @@
 # Dental-Clinic-project
 
-## What is this app?
+### What is this app?
 
 - This app could make appointments at a dentist.
 - The main users would be the new patient and the registered patient.
 
-## What kinds of problems will they solve with the system?
+### What kinds of problems will they solve with the system?
 
 - In Vancouver, it is hard to make an appointment at a dentist.
 - In the worst case, we can not schedule within next 6 months.
 - This app enables patient to schedule it easily.
 
-## Stacks
+### Stacks
 
 - JDK 17
 - MySQL 5.7
 - maven
 
-## GUI design and Modality
+### GUI design and Modality
 
 - https://miro.com/app/board/uXjVPCdZVUI=/?share_link_id=14524814338
 
-## Basic design decisions
+### Basic design decisions
 
 - ![Color pallet](/src/main/resources/static/images/Screen%20Shot%202022-11-26%20at%2012.25.10%20PM.png)
 
-## SQL script may be supplied
+### SQL script may be supplied
 
 - ???
 
-## Java Library
+### Java Library
 
 - ???
 
-## Project Member
+### Project Member
 
 - Yuta / Amir / Hiro / Yuki
 
-## Reference list
+### Reference list
 
 - https://www.drbany.com/
 - https://unsplash.com/ja
