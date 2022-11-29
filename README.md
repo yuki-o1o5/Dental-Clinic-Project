@@ -1,7 +1,6 @@
 # Dental-Clinic-project
 
 ### What is this app?
-
 - This app could make appointments at a dentist.
 - The main users would be the new patient and the registered patient.
 
@@ -12,40 +11,46 @@
 - This app enables patient to schedule it easily.
 
 ### Stacks
-
 - JDK 17
 - MySQL 5.7
+- Tomcat
 - maven
 
 ### GUI design and Modality
 
 - https://miro.com/app/board/uXjVPCdZVUI=/?share_link_id=14524814338
 
-### Basic design decisions
+### Architecture Overview
+![img](/src/main/resources/static/images/architecture.png)
 
-- ![Color pallet](/src/main/resources/static/images/Screen%20Shot%202022-11-26%20at%2012.25.10%20PM.png)
+
+### Basic design decisions
+![Color pallet](/src/main/resources/static/images/Screen%20Shot%202022-11-26%20at%2012.25.10%20PM.png)
 
 ### SQL script may be supplied
-
-- ???
+- In `sql` directory, there are two files.
+  - 01_ddl.sql
+  - 02_initial-data.sql
+- By running sql scripts in those files, Database, Tables and Sample data will be created.
 
 ### Java Library
-
-- ???
+- [Spring Boot](https://github.com/spring-projects/spring-boot)
+- [MySQL Connector/J](https://github.com/mysql/mysql-connector-j)
+- [thymeleaf](https://github.com/thymeleaf/thymeleaf)
+- [lombok](https://github.com/projectlombok/lombok)
 
 ### Project Member
-
-- Yuta / Amir / Hiro / Yuki
+- [Amir](https://github.com/amirabuabas)
+- [Hiro](https://github.com/Hirotsune0214)
+- [Yuki](https://github.com/yuki-o1o5)
+- [Yuta](https://github.com/yuta519)
 
 ### Reference list
-
 - https://www.drbany.com/
 - https://unsplash.com/ja
 
 ### How to setup
-
 1. Add MySQL credentials
-
 - Create a credential file (`application.properties`)
 
 ```bash
@@ -53,7 +58,6 @@ cp ./src/main/resources/application.properties.sample ./src/main/resources/appli
 ```
 
 2. Change credentials to yours
-
 - If you got the below error, you need to use TLS1.2 to connect MySQL.
   > Caused by: javax.net.ssl.SSLHandshakeException: No appropriate protocol (protocol is disabled or cipher suites are inappropriate)
 - So please specify like "?enabledTLSProtocols=TLSv1.2".
