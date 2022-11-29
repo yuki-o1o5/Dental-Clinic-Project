@@ -33,7 +33,6 @@ public class SignupController {
       signup.getPhoneNumber()
     );
     UserEntity user = userService.find_user_by_email(signup.getEmail());
-    return String.format("redirect:/home?user_uuid=%s", user.getUuid());
+    return String.format("redirect:/login", user.getUuid());
   }
-
 }
