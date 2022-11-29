@@ -1,70 +1,230 @@
-<html lang="en">
 
-  <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registration</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
-      integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
-      crossorigin="anonymous"></script>
-    <link rel="stylesheet" th:href="@{/home.css}">
-  </head>
+<!DOCTYPE html>
+<head>
+  <title>Registration</title>
+  <style>
+    :root{
+      --bgColor: #ffffff;
+      --formColor: linear-gradient(#91aef2, #2f4573);
+      --txtColor: #ffffff;
+      --txtSecondaryColor: #ffff00;
+      --inputBoxBg : transparent;
+      --txtBtnColor: #ffffff;
+      --txtBtnSecondaryColor: #000000;
+      --btnBorderColor: #ffffff;
+      --btnBgColor: transparent;
+      --btnBgSecondaryColor: #ffffff;
+    }
+    body {
+       
+    background-image: url("https://img.freepik.com/free-photo/professional-dentist-tools-dental-office_1204-235.jpg?w=1800&t=st=1669429221~exp=1669429821~hmac=8b4b55ecf7d9045bf9eee8987ee7e144606abffdd35f36948eb778faafb1cdbb");
+    /* background-color: #cccccc; */
+}
 
-  <body>
-    <h1 style="text-align: center">Create account</h1>
-    <form action="/signup/save" id="signup-form" method="POST">
+      /* margin:0;
+      padding:0;
+      font-family: sans-serif;
+      background: var(--bgColor); */
+    
+
+    .login-box {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 400px;
+      padding: 40px;
+      transform: translate(-50%, -50%);
+      box-sizing: border-box;
+      box-shadow: 0 15px 25px rgba(0,0,0,.6);
+      border-radius: 10px;
+      background: var(--formColor);
+    }
+
+    .login-box h2 {
+      margin: 0 0 30px;
+      padding: 0;
+      color: var(--txtColor);
+      text-align: center;
+    }
+
+    .login-box .user-box {
+      position: relative;
+    }
+
+    .login-box .user-box input {
+      width: 100%;
+      padding: 10px 0;
+      font-size: 16px;
+      color: var(--txtColor);
+      margin-bottom: 30px;
+      border: none;
+      border-bottom: 1px solid #fff;
+      outline: none;
+      background: var(--inputBoxBg);
+    }
+    .login-box .user-box label {
+      position: absolute;
+      top:0;
+      left: 0;
+      padding: 10px 0;
+      font-size: 16px;
+      color: var(--txtColor);
+      pointer-events: none;
+      transition: .5s;
+    }
+
+    .login-box .user-box input:focus ~ label,
+    .login-box .user-box input:valid ~ label {
+      top: -20px;
+      left: 0;
+      color: var(--txtSecondaryColor);
+      font-size: 12px;
+    }
+
+    .login-box form a {
+      position: relative;
+      display: inline-block;
+      padding: 10px 20px;
+      color: var(--txtBtnColor);
+      font-size: 16px;
+      text-decoration: none;
+      text-transform: uppercase;
+      overflow: hidden;
+      transition: .5s;
+      margin-top: 40px;
+      letter-spacing: 4px
+    }
+
+    .login-box a:hover {
+      background: var(--btnBgSecondaryColor);
+      color: var(--txtBtnSecondaryColor);
+      border-radius: 5px;
+      box-shadow: 0 0 5px var(--btnBgSecondaryColor),
+                  0 0 25px var(--btnBgSecondaryColor),
+                  0 0 50px var(--btnBgSecondaryColor),
+                  0 0 100px var(--btnBgSecondaryColor);
+    }
+
+    .login-box a span {
+      position: absolute;
+      display: block;
+    }
+
+    .login-box a span:nth-child(1) {
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--btnBorderColor));
+      animation: btn-anim1 1s linear infinite;
+    }
+
+    @keyframes btn-anim1 {
+      0% {
+        left: -100%;
+      }
+      50%,100% {
+        left: 100%;
+      }
+    }
+
+    .login-box a span:nth-child(2) {
+      top: -100%;
+      right: 0;
+      width: 2px;
+      height: 100%;
+      background: linear-gradient(180deg, transparent, var(--btnBorderColor));
+      animation: btn-anim2 1s linear infinite;
+      animation-delay: .25s
+    }
+
+    @keyframes btn-anim2 {
+      0% {
+        top: -100%;
+      }
+      50%,100% {
+        top: 100%;
+      }
+    }
+
+    .login-box a span:nth-child(3) {
+      bottom: 0;
+      right: -100%;
+      width: 100%;
+      height: 3px;
+      background: linear-gradient(270deg, transparent, var(--btnBorderColor));
+      animation: btn-anim3 1s linear infinite;
+      animation-delay: .5s
+    }
+
+    @keyframes btn-anim3 {
+      0% {
+        right: -100%;
+      }
+      50%,100% {
+        right: 100%;
+      }
+    }
+
+    .login-box a span:nth-child(4) {
+      bottom: -100%;
+      left: 0;
+      width: 2px;
+      height: 100%;
+      background: linear-gradient(360deg, transparent, var(--btnBorderColor));
+      animation: btn-anim4 1s linear infinite;
+      animation-delay: .75s
+    }
+
+    @keyframes btn-anim4 {
+      0% {
+        bottom: -100%;
+      }
+      50%,100% {
+        bottom: 100%;
+      }
+    }
+
+  </style>
+</head>
+<body>
+  <div class="login-box">
+    <h2>Create an account</h2>
+    <form action="/signup/save" method="POST">
       <fieldset>
-        <div class="form-group mb-3" style="text-align: center">
-          <label for="">First Name:</label>
-          <br>
-          <input type="text" size="25" placeholder="Type First Name" th:field="${signup.firstName}">
-        </div>
-
-        <div class="form-group mb-3" style="text-align: center">
-          <label for="">Last Name:</label>
-          <br>
-          <input type="text" size="25" placeholder="Type Last Name" th:field="${signup.lastName}">
-        </div>
-
-        <div class="form-group mb-3" style="text-align: center">
-          <label for="">Date of Birth:</label>
-          <br>
-          <input type="date" value="2022-11-22" th:field="${signup.birthDate}">
-        </div>
-
-        <div class="form-group mb-3" style="text-align: center">
-          <label for="">Email:</label>
-          <br>
-          <input type="text" size="25" placeholder="Type Email" th:field="${signup.email}">
-        </div>
-
-        <div class="form-group mb-3" style="text-align: center">
-          <label for="">Phone number:</label>
-          <br>
-          <input type="tel" size="25" pattern="\d{1,5}-\d{1,4}-\d{4,5}" placeholder="00-0000-0000"
-            th:field="${signup.phoneNumber}" required>
-          <!-- Problem is th:field="${signup.phoneNumber} -->
-          <!-- pattern is should have that number's pattern -->
-          <!--placeholder is gone if I type th:field-->
-        </div>
-
-        <div class="form-group mb-3" style="text-align: center">
-          <label for="">Password (8 characters minimum):</label>
-          <br>
-          <input type="password" size="25" id="pass" name="password" minlength="8" required placeholder="Type password"
-            th:field="${signup.password}">
-        </div>
-
-        <!-- <button type="submit" class="btn btn-dark mt-3">Create!!</button> -->
-        <div class="button013" onclick="document.getElementById('signup-form').submit()">
-          <a href="#">Create</a>
-        </div>
-
-      </fieldset>
+      <div class="user-box">
+        <input type="text" name="name" required="firstName" th:field="${signup.firstName}">
+        <label>First name</label>
+      </div>
+      <div class="user-box">
+        <input type="text" name="lastName" required="lastName" th:field="${signup.lastName}">
+        <label>Last name</label>
+      </div>
+      <div class="user-box">
+        <input type="date" value="2022-11-22" th:field="${signup.birthDate}">
+        <label>Date of Birth</label>
+      </div>
+      <div class="user-box">
+        <input type="text" name="Email" required="Email" th:field="${signup.email}">
+        <label>Email</label>
+      </div>
+      <div class="user-box">
+        <input type="tel" required="phoneNumber" th:field="${signup.phoneNumber}" >
+        <label>Phone number</label>
+      </div>
+      <div class="user-box">
+        <input type="password" name="password" minlength="8" id= "pass" required="password" th:field="${signup.password}">
+        <label>Password (8 characters minimum)</label>
+      </div>
+      <a href="/login">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+            Submit
+      </a>
     </form>
-    </div>
-  </body>
+  </div>
+
+</body>
 </html>
