@@ -21,6 +21,10 @@ public class UserService {
         return userRepository.findById(uuid).orElseThrow();
     }
 
+    public UserEntity find_user_by_email(String email) {
+        return userRepository.findByEmail(email);
+    }
+
     public void create(
         String email,
         String password,
@@ -38,4 +42,9 @@ public class UserService {
         user.set_phone(phone);
         userRepository.save(user);
     }
+
+    public int is_user_login_valid(String email, String password){
+        return userRepository.IsUserLoginValid(email, password);
+    }
+
 }
